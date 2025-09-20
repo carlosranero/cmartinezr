@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ph.D. Carlos Martinez Ranero | Research Mathematician</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --background: #fff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            margin: 0 -20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+        
+        .profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .profile {
+                flex-direction: row;
+                align-items: center;
+                margin-bottom: 0;
+            }
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--light);
+            margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .profile-img {
+                margin-right: 1.5rem;
+                margin-bottom: 0;
+            }
+        }
+        
+        .profile-info h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-info h2 {
+            font-size: 1.2rem;
+            font-weight: normal;
+            color: var(--light);
+        }
+        
+        nav {
+            background-color: var(--secondary);
+            padding: 1rem 0;
+            margin: 0 -20px;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            margin: 0.5rem 1rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--light);
+        }
+        
+        section {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 992px) {
+            .about-content {
+                flex-direction: row;
+            }
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .research-interests {
+            flex: 1;
+        }
+        
+        .interest-list {
+            list-style: none;
+        }
+        
+        .interest-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .interest-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .publications {
+            background-color: #f8f9fa;
+            margin: 0 -20px;
+            padding: 3rem 20px;
+        }
+        
+        .pub-list {
+            list-style: none;
+        }
+        
+        .pub-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .pub-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .pub-authors {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pub-journal {
+            margin-bottom: 0.5rem;
+        }
+        
+        .pub-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        .pub-links a:hover {
+            color: var(--accent);
+        }
+        
+        .teaching-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .teaching-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .course-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .course-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .contact-content {
+                flex-direction: row;
+            }
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-details {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .contact-details li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details li i {
+            margin-right: 0.8rem;
+            color: var(--secondary);
+            width: 20px;
+            text-align: center;
+        }
+        
+        .office-hours {
+            flex: 1;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin: 2rem -20px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .math-example {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile">
+                    <img src="https://via.placeholder.com/150" alt="Dr. Elena Mathison" class="profile-img">
+                    <div class="profile-info">
+                        <h1>Dr. Elena Mathison</h1>
+                        <h2>Professor of Mathematics</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am a Professor of Mathematics at University of Mathematics, specializing in algebraic topology and differential geometry. My research focuses on the intersection of these fields with theoretical physics, particularly in the areas of quantum field theory and string theory.</p>
+                    <p>I received my Ph.D. from Princeton University in 2008 under the supervision of Dr. Michael Atiyah. Before joining UM, I was a postdoctoral researcher at the Institute for Advanced Study and held a visiting position at Cambridge University.</p>
+                    
+                    <div class="math-example">
+                        <p>My recent work explores the homotopy theory of derived algebraic geometry, with applications to quantum mechanics. For example, the derived moduli stack of perfect complexes can be represented as:</p>
+                        <p>\[ \mathcal{M}_{\text{perf}} \simeq \coprod_{n\in\mathbb{Z}} \mathcal{M}^{[n]}_{\text{perf}} \]</p>
+                    </div>
+                </div>
+                <div class="research-interests">
+                    <h3>Research Interests</h3>
+                    <ul class="interest-list">
+                        <li>Algebraic Topology</li>
+                        <li>Differential Geometry</li>
+                        <li>Quantum Field Theory</li>
+                        <li>String Theory</li>
+                        <li>Homotopy Theory</li>
+                        <li>Category Theory</li>
+                    </ul>
+                    
+                    <div class="math-example">
+                        <p>Current research focuses on the extension of Chern-Weil theory to derived stacks:</p>
+                        <p>\[ H^*_{\text{deRham}}(BG) \cong \text{Sym}^*(g^*)^G \]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="research">
+        <div class="container">
+            <h2 class="section-title">Research</h2>
+            <div class="about-text">
+                <p>My research program explores the deep connections between algebraic topology and theoretical physics. I'm particularly interested in how methods from homotopy theory can be applied to understand the mathematical structures underlying quantum field theories.</p>
+                
+                <div class="math-example">
+                    <p>Recent work has focused on extending the Atiyah-Singer index theorem to non-commutative geometries:</p>
+                    <p>\[ \text{Ind}(D) = \int_{T^*M} \hat{A}(TM) \wedge \text{ch}(\sigma(D)) \]</p>
+                </div>
+                
+                <p>My current work focuses on developing a comprehensive framework for understanding topological phases of matter using techniques from higher category theory and homotopy theory. This research has potential applications in quantum computing and condensed matter physics.</p>
+                <p>I collaborate with physicists and mathematicians worldwide, and my work has been supported by grants from the National Science Foundation and the Simons Foundation.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="publications" class="publications">
+        <div class="container">
+            <h2 class="section-title">Selected Publications</h2>
+            <ul class="pub-list">
+                <li class="pub-item">
+                    <div class="pub-title">Higher Categories and Topological Quantum Field Theories</div>
+                    <div class="pub-authors">Mathison, E., &amp; Johnson, P.</div>
+                    <div class="pub-journal">Advances in Mathematics, 345, 202-245 (2023)</div>
+                    <div class="pub-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Journal</a>
+                        <a href="#"><i class="fas fa-file-pdf"></i> arXiv</a>
+                    </div>
+                </li>
+                <li class="pub-item">
+                    <div class="pub-title">Homotopical Approaches to String Theory</div>
+                    <div class="pub-authors">Mathison, E.</div>
+                    <div class="pub-journal">Communications in Mathematical Physics, 398(2), 789-831 (2023)</div>
+                    <div class="pub-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Journal</a>
+                        <a href="#"><i class="fas fa-file-pdf"></i> arXiv</a>
+                    </div>
+                </li>
+                <li class="pub-item">
+                    <div class="pub-title">Categorical Structures in Algebraic Topology</div>
+                    <div class="pub-authors">Mathison, E., Smith, R., &amp; Watanabe, T.</div>
+                    <div class="pub-journal">Journal of Topology, 16(1), 45-92 (2022)</div>
+                    <div class="pub-links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Journal</a>
+                        <a href="#"><i class="fas fa-file-pdf"></i> arXiv</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="teaching">
+        <div class="container">
+            <h2 class="section-title">Teaching</h2>
+            <div class="teaching-grid">
+                <div class="course-card">
+                    <div class="course-title">MATH 501: Advanced Algebraic Topology</div>
+                    <p>Graduate course covering fundamental concepts in algebraic topology, including homotopy theory, spectral sequences, and category theory.</p>
+                    <div class="math-example">
+                        <p>Covers fundamental groups, covering spaces, and higher homotopy groups:</p>
+                        <p>\[ \pi_n(X,x_0) \cong [S^n, X] \]</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-title">MATH 420: Differential Geometry</div>
+                    <p>Undergraduate course on differentiable manifolds, Riemannian geometry, and applications to physics.</p>
+                    <div class="math-example">
+                        <p>Introduces curvature tensors and the Einstein field equations:</p>
+                        <p>\[ R_{\mu\nu} - \frac{1}{2}Rg_{\mu\nu} = \frac{8\pi G}{c^4}T_{\mu\nu} \]</p>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-title">MATH 650: Seminar in Topological Quantum Field Theory</div>
+                    <p>Graduate seminar exploring recent developments in TQFT and related areas.</p>
+                </div>
+                <div class="course-card">
+                    <div class="course-title">MATH 310: Introduction to Topology</div>
+                    <p>Undergraduate introduction to point-set topology and basic algebraic topology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-envelope"></i> elena.mathison@university.edu</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Department of Mathematics<br>
+                            University of Mathematics<br>
+                            123 Science Drive<br>
+                            Mathville, MA 02138</li>
+                    </ul>
+                </div>
+                <div class="office-hours">
+                    <h3>Office Hours</h3>
+                    <p>Spring 2024:</p>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-calendar-alt"></i> Mondays: 2:00 PM - 4:00 PM</li>
+                        <li><i class="fas fa-calendar-alt"></i> Wednesdays: 10:00 AM - 12:00 PM</li>
+                        <li><i class="fas fa-calendar-alt"></i> By appointment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-google-scholar"></i></a>
+                    <a href="#"><i class="fab fa-researchgate"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 Dr. Elena Mathison. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
